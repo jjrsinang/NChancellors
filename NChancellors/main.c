@@ -3,21 +3,16 @@
 //  NChancellors
 //
 //  Created by JJ Sinang on 11/4/15.
-//  crlsctalan23@gmail.com - carlos catalan
 //  Copyright (c) 2015 MacBook Pro. All rights reserved.
 //
 
 #include <stdio.h>
-#define N 5
 #define TRUE 1
 #define FALSE 0
 
-int Nf = 0;
-int initial[N+1];
-
 void print_solution(int n,int x[]) {
     int i,j;
-    int solution[N+1][N+1];
+    int solution[n+1][n+1];
     // pre-fill with dashes
     for(i=1;i<=n;i++) {
         for(j=1; j<=n; j++) {
@@ -85,8 +80,8 @@ int place(int x[],int k) {
     return TRUE;
 }
 
-void nchancellors(int n) {
-    int x[N+1]; // queen positions: row=index, column=value
+void nchancellors(int n, int initial[]) {
+    int x[n+1]; // queen positions: row=index, column=value
     int count=0;
     int k=1;
 
@@ -100,7 +95,7 @@ void nchancellors(int n) {
         if(x[k]<=n) {
             if(k==n) { // n queens have been placed
                 int i, hasInitialSolution = TRUE;
-                for (i=1; i<=N; i++) {
+                for (i=1; i<=n; i++) {
                     if (initial[i]>0 && initial[i]!=x[i]) {
                         hasInitialSolution = FALSE;
                     }
@@ -126,13 +121,36 @@ void nchancellors(int n) {
 }
 
 int main(int argc, const char * argv[]) {
-    int i;
-    for (i=1; i<=N; i++) {
+
+    FILE *fp;
+    fp = fopen("/Users/MacBook/git/NChancellors/NChancellors/input.txt", "r"); // change this
+
+    int i, n, row=1, col=1, val;
+    fscanf(fp,"%d",&n);
+    int initial[n+1];
+    for (i=1; i<=n; i++) {
         initial[i] = 0;
     }
-    initial[3] = 3;
 
-    printf("\n\n\t\t\t USING %d QUEEN'S STRATEGY \n\n",N);
-    nchancellors(N);
+    while(fscanf(fp, "%d", &val) != EOF){
+        if (val==1) {
+            initial[row] = col;
+        }
+        if(col > n-1){
+            row++;
+            col = 0;
+        }
+        col++;
+    }
+    
+    fclose(fp);
+
+/*    printf("\n%i - ",n);
+    for (i=1; i<=n; i++) {
+        printf("%i ",initial[i]);
+    }printf("\n");*/
+
+    printf("\n\n\t\t\t USING %d QUEEN'S STRATEGY \n\n",n);
+    nchancellors(n, initial);
     return 0;
 }

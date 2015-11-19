@@ -102,7 +102,7 @@ void nchancellors(int n, int initial[]) {
                 }
                 if (hasInitialSolution) {
                     count++;
-                    printf("\n\tSolution %d  is : \n\n\n",count);
+                    printf("\n\tSolution %d: \n",count);
                     print_solution(n,x);
                 }
             } else { // next queen
@@ -150,7 +150,7 @@ int main(int argc, const char * argv[]) {
         printf("%i ",initial[i]);
     }printf("\n");*/
 
-    printf("\n\n\t\t\t USING %d QUEEN'S STRATEGY \n\n",n);
+    printf("\n\n\t\t\t %d-CHANCELLOR'S STRATEGY \n\n",n);
     nchancellors(n, initial);
     return 0;
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="NChancellors">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      var something = 100;
+    </script>
+	<style>
+	body {
+    background-image: url("images/christmas-tree.jpg");
+    background-color: #cccccc;
+	}
+	
+	h1{
+		color: white;
+	}
+	
+	</style>
+	
+  </head>
+
+  <body>
+	
+	<h1>Arrange the Christmas Presents!</h1>
+    <form ng-controller="PuzzleController as puzzleCtrl" >
+      
+	  
+      
+      
+	  <div class="col-md-3">
+	  <button class="btn btn-success btn-large btn-block" ng-click="puzzleCtrl.main()">Start/Restart</button>
+      </div>
+      <input ng-model="puzzleCtrl.n" type="number" min="1" placeholder="N" title="N" />
+	  <br/>
+	  <br>
+	  <div class="col-md-3">
+      <button class="btn btn-danger btn-large btn-block" ng-click="puzzleCtrl.solve()" data-toggle="modal" data-target="#solutions">Ask Help From the Easter Bunny</button>
+      </div>
+      <input ng-model="puzzleCtrl.solutions.length" type="number" disabled="true" placeholder="solutions" title="Solutions" />
+	  <br>
+	  </br>
+	  <div ng-repeat="cell in puzzleCtrl.cells">
+        
+        <div ng-if="cell.isEnd">
+          <img class="thumbnail" ng-src="{{cell.url}}" ng-click="cell.onClick()"/>
+        </div>
+        <div ng-if="!cell.isEnd">
+          <img class="pull-left thumbnail" ng-src="{{cell.url}}" ng-click="cell.onClick()"/>
+        </div>
+      </div>
+	  
+      
+      
+      
+      
+	  <div id="solutions" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Solutions</h4>
+		  </div>
+		  <div class="modal-body">
+			<div ng-repeat="solution in puzzleCtrl.solutions">
+				<pre>{{solution}}</pre>
+				<!--<textarea style="height: 200px" height="400">{{solution}}</textarea>-->
+			  </div>
+		  </div>
+		 
+		</div>
+
+	  </div>
+	</div>	
+	  
+	  
+    </form>
+    
+  </body>
+</html>

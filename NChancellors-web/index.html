@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="NChancellors">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script>
+      var something = 100;
+    </script>
+	<style>
+	body {
+    background-image: url("images/santa.jpg");
+    background-color: #cccccc;
+	}
+	
+	h1{
+		color: white;
+	}
+	
+	</style>
+	
+  </head>
+
+  <body>
+	
+	<h1>Santa's Christmas Presents' Arrangement Ultimate Optimizer </h1>
+    <form ng-controller="PuzzleController as puzzleCtrl" >
+      
+
+	<div class="col-md-4">
+    <a href="http://localhost:8080/NChancellors/game.html" class="btn btn-success btn-block">Start Game!</a>
+
+ 
+    <br/>
+      
+    <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#instructions">Instructions</button>
+    </div>
+
+	<div id="instructions" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">HO! HO! HO! That's a lot of presents!</h4>
+		  </div>
+		  <div class="modal-body">
+			<p>Christmas is just around the corner and Santa's almost done checking his list.
+				
+			</p>
+			<p>
+				At 00:00 hours on December 25, 2015,
+				Eastern Pacific Time, Santa will depart from
+				his workshop at the North Pole with Rudolph on his trusty sleigh to distribute
+				all the presents to all the families in the world before Christmas Morning.
+			</p>
+			<p>
+				Last Christmas, he narrowly missed his Christmas Morning deadline to distribute the gifts.
+				Why? There are billions of families all over the world and only one Santa. So this year, he
+				decided to ask some help from you to help him optimize the arrangement of the gifts under the
+				Christmas Tree where he could distribute all the gifts to each house of the world as quickly as possible. 
+			</p>
+			<p>
+				Using his Bachelor's Degree in Computer Science from the University of the Philippines Los Banos,
+				He does know that an optimal arrangement of the gifts is to arrange them in such a way where
+				no gift is placed on the north, east, west, south, north-east, north-west, south-east, south-west of 
+				another gift. Since there are so many possible arrangements for this, all he needs you to do is find one
+				and you've saved Christmas!
+			</p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+
+	  </div>
+	</div>	
+      
+      
+    </form>
+    
+  </body>
+</html>
